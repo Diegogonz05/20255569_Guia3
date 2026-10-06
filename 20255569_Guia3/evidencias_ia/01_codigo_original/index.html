@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorá pollo, menús y opciones familiares de Pollo Campero El Salvador.">
+    <title>Pollo Campero El Salvador | Inicio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/identidad-campero.css">
+    <link rel="stylesheet" href="css/inicio-grid.css">
+</head>
+<body class="pagina-inicio">
+    <div class="franja-marca">POLLO CAMPERO <span>EL SALVADOR</span></div>
+    <header class="cabecera-inicio">
+        <div class="ancho cabecera-fila">
+            <a class="logo-inicio" href="index.html">
+                <img src="img/oficial/logo-campero.png" alt="Pollo Campero — Inicio" width="371" height="135">
+            </a>
+            <nav class="nav-inicio" aria-label="Navegación principal">
+                <a class="actual" href="index.html" aria-current="page">Inicio</a>
+                <a href="menu.html">Menú</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+            <a class="enlace-oficial" href="https://sv.campero.com/home" target="_blank" rel="noopener noreferrer">Pedir en sitio oficial ↗</a>
+        </div>
+    </header>
+
+    <!-- GRID PRINCIPAL: los cinco hijos directos ocupan las áreas del CSS. -->
+    <main class="inicio-grid ancho" id="contenido">
+        <section class="presentacion" aria-labelledby="titulo-inicio">
+            <p class="rotulo">POLLO · MENÚS · ACOMPAÑAMIENTOS</p>
+            <h1 id="titulo-inicio">Pollo Campero.<br>Elegí tu favorito.</h1>
+            <p>Pollo, papas y opciones familiares. Consultá el menú y encontrá qué vas a pedir.</p>
+            <a class="accion" href="menu.html#productos">Explorar productos →</a>
+        </section>
+
+        <figure class="foto-principal">
+            <img src="img/oficial/pollo-oficial.png" width="736" height="490" alt="Pollo Campero con papas, ensalada y pan">
+        </figure>
+
+        <section class="favoritos" aria-labelledby="titulo-favoritos">
+            <div class="titulo-fila">
+                <h2 id="titulo-favoritos">Del menú</h2>
+                <a href="menu.html">Ver todo →</a>
+            </div>
+            <article class="producto-fila">
+                <img src="img/pollo2.jpg" alt="Pollo con papas y bebida" width="220" height="190" loading="lazy">
+                <div>
+                    <h3>Menú tradicional</h3>
+                    <p>Pollo, papas y bebida.</p>
+                    <a href="menu.html#tradicional">Ver menú tradicional →</a>
+                </div>
+            </article>
+            <article class="producto-fila">
+                <img src="img/tradicional.jpg" alt="Presentación de pollo para compartir" width="220" height="190" loading="lazy">
+                <div>
+                    <h3>Banquete familiar</h3>
+                    <p>Pollo y acompañamientos para compartir.</p>
+                    <a href="menu.html#banquete">Ver banquete →</a>
+                </div>
+            </article>
+        </section>
+
+        <section class="categoria" aria-labelledby="titulo-categoria">
+            <img src="img/oficial/camperitos-oficial.png" width="736" height="490" alt="Categoría oficial: Camperitos, alitas y medallones" loading="lazy">
+            <div class="categoria-texto">
+                <h2 id="titulo-categoria">¿Camperitos?</h2>
+                <a href="menu.html#camperitos">Ver Camperitos en el menú →</a>
+            </div>
+        </section>
+
+        <section class="contacto-breve" aria-labelledby="titulo-contacto">
+            <div>
+                <h2 id="titulo-contacto">Campero en El Salvador</h2>
+                <p>Opciones individuales y familiares. Consultá información de locales y canales de atención.</p>
+            </div>
+            <a href="contacto.html#locales">Contacto y locales →</a>
+        </section>
+    </main>
+
+    <footer class="pie-inicio">
+        <div class="ancho pie-fila">
+            <p>Pollo Campero · El Salvador</p>
+            <nav aria-label="Enlaces del pie">
+                <a href="menu.html">Menú</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="README_RETO_IA.md">Acerca del proyecto</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

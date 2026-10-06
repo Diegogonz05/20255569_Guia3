@@ -1,0 +1,4 @@
+Font Awesome 4.7.0, por Dave Gandy. Fuente: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/
+Licencia de la fuente: SIL OFL 1.1. Código CSS: MIT.
+Licencias: https://fontawesome.com/v4/license/
+Se conserva la cabecera de licencia y se simplifica @font-face a WOFF2, incluida localmente.

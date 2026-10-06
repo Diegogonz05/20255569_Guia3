@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorá menús familiares, pollo, sándwiches y acompañamientos de Pollo Campero.">
+    <title>Menú | Pollo Campero El Salvador</title>
+    <link rel="icon" href="img/logo-campero.png" type="image/png">
+    <link rel="preload" href="fonts/bebas-neue.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="fonts/space-grotesk-400.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <!-- El mismo encabezado se utiliza en las tres páginas. -->
+    <header class="cabecera">
+        <div class="franja">
+            <div class="contenedor franja-interior">
+                <span>POLLO CAMPERO</span>
+                <span>EL SALVADOR</span>
+            </div>
+        </div>
+        <div class="contenedor cabecera-interior">
+            <a class="marca" href="index.html">
+                <img src="img/logo-campero.png" alt="Pollo Campero — Inicio" width="371" height="135">
+            </a>
+            <nav class="navegacion" aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="menu.html" aria-current="page">Menú</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+            <div class="acciones-cabecera">
+                <button class="acceso-cuenta" type="button" data-abrir-cuenta aria-haspopup="dialog" hidden>Ingresar</button>
+                <button class="boton boton-cabecera" type="button" data-abrir-carrito aria-haspopup="dialog" hidden>
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 3h3l3 13h11l3-9H6"/><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>
+                    Carrito <span class="contador-carrito">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+<main id="contenido" class="contenedor pagina-menu">
+        <header class="titulo-pagina">
+            <p class="etiqueta">POLLO CAMPERO · EL SALVADOR</p>
+            <h1>Nuestro menú.</h1>
+            <p>Pollo, menús y acompañamientos. Elegí qué se te antoja.</p>
+        </header>
+        <div class="categorias-menu" role="group" aria-label="Filtrar productos" hidden>
+            <button type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+            <button type="button" data-filtro="pollo" aria-pressed="false">Pollo</button>
+            <button type="button" data-filtro="sandwiches" aria-pressed="false">Sándwiches</button>
+            <button type="button" data-filtro="acompanamientos" aria-pressed="false">Acompañamientos</button>
+        </div>
+        <p class="resultado-filtro" id="resultado-filtro" role="status" hidden></p>
+        <section class="productos-grid" id="productos" aria-label="Productos">
+            <article class="producto" id="tradicional" data-categoria="pollo">
+                <img class="producto-imagen" src="img/pollo2.jpg" alt="Pollo con papas y bebida" width="1448" height="1086" loading="lazy">
+                <div class="producto-contenido">
+                    <p class="etiqueta">Menús</p>
+                    <h2>Menú tradicional</h2>
+                    <p>Pollo acompañado de papas y bebida.</p>
+                    <button class="boton agregar-producto" type="button" data-agregar="tradicional" aria-label="Agregar Menú tradicional al carrito" hidden>Agregar +</button><noscript><a href="contacto.html#consulta">Consultar producto</a></noscript>
+                </div>
+            </article>
+            <article class="producto" id="banquete" data-categoria="pollo">
+                <img class="producto-imagen" src="img/tradicional.jpg" alt="Pollo servido con distintos acompañamientos" width="1448" height="1086" loading="lazy">
+                <div class="producto-contenido">
+                    <p class="etiqueta">Menús</p>
+                    <h2>Banquete familiar</h2>
+                    <p>Pollo y acompañamientos para compartir.</p>
+                    <button class="boton agregar-producto" type="button" data-agregar="banquete" aria-label="Agregar Banquete familiar al carrito" hidden>Agregar +</button><noscript><a href="contacto.html#consulta">Consultar producto</a></noscript>
+                </div>
+            </article>
+            <article class="producto" id="camperitos" data-categoria="pollo">
+                <img class="producto-imagen" src="img/nuggets.jpg" alt="Bocados de pollo con papas y salsas" width="1448" height="1086" loading="lazy">
+                <div class="producto-contenido">
+                    <p class="etiqueta">Pollo</p>
+                    <h2>Camperitos</h2>
+                    <p>Bocados de pollo para acompañar con salsa.</p>
+                    <button class="boton agregar-producto" type="button" data-agregar="camperitos" aria-label="Agregar Camperitos al carrito" hidden>Agregar +</button><noscript><a href="contacto.html#consulta">Consultar producto</a></noscript>
+                </div>
+            </article>
+            <article class="producto" id="tiras" data-categoria="pollo">
+                <img class="producto-imagen" src="img/pollo.jpg" alt="Tiras de pollo acompañadas de salsas" width="1448" height="1086" loading="lazy">
+                <div class="producto-contenido">
+                    <p class="etiqueta">Pollo</p>
+                    <h2>Tiras de pollo</h2>
+                    <p>Tiras crujientes con tus acompañamientos favoritos.</p>
+                    <button class="boton agregar-producto" type="button" data-agregar="tiras" aria-label="Agregar Tiras de pollo al carrito" hidden>Agregar +</button><noscript><a href="contacto.html#consulta">Consultar producto</a></noscript>
+                </div>
+            </article>
+            <article class="producto" id="sandwich" data-categoria="sandwiches">
+                <img class="producto-imagen" src="img/sandwich.jpg" alt="Sándwich de pollo crujiente" width="1448" height="1086" loading="lazy">
+                <div class="producto-contenido">
+                    <p class="etiqueta">Sándwiches</p>
+                    <h2>Sándwich crujiente</h2>
+                    <p>Pollo crujiente, vegetales y salsa en un pan suave.</p>
+                    <button class="boton agregar-producto" type="button" data-agregar="sandwich" aria-label="Agregar Sándwich crujiente al carrito" hidden>Agregar +</button><noscript><a href="contacto.html#consulta">Consultar producto</a></noscript>
+                </div>
+            </article>
+            <article class="producto" id="papas" data-categoria="acompanamientos">
+                <img class="producto-imagen" src="img/papas.jpg" alt="Papas fritas servidas con salsa" width="1448" height="1086" loading="lazy">
+                <div class="producto-contenido">
+                    <p class="etiqueta">Acompañamientos</p>
+                    <h2>Papas</h2>
+                    <p>El acompañamiento para completar tu selección.</p>
+                    <button class="boton agregar-producto" type="button" data-agregar="papas" aria-label="Agregar Papas al carrito" hidden>Agregar +</button><noscript><a href="contacto.html#consulta">Consultar producto</a></noscript>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor pie-interior">
+            <p><strong>Pollo Campero</strong><span>El Salvador</span></p>
+            <nav aria-label="Navegación del pie">
+                <a href="index.html">Inicio</a>
+                <a href="menu.html" aria-current="page">Menú</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+            <a class="telefono" href="tel:+50322736000">2273-6000</a>
+        </div>
+    </footer>
+
+    <dialog id="carrito" class="panel" aria-labelledby="titulo-carrito">
+        <div class="panel-cabecera">
+            <h2 id="titulo-carrito">Tu carrito</h2>
+            <button class="cerrar-panel" type="button" data-cerrar aria-label="Cerrar carrito">×</button>
+        </div>
+        <div id="lista-carrito"></div>
+        <div class="resumen-carrito" id="resumen-carrito" hidden>
+            <p><strong id="total-unidades"></strong></p>
+            <p>Consultá el precio y la disponibilidad de tu selección.</p>
+            <a class="boton" id="consultar-carrito" target="_blank" rel="noopener noreferrer">Consultar pedido por WhatsApp ↗</a>
+            <button class="vaciar" type="button" id="vaciar-carrito">Vaciar carrito</button>
+        </div>
+    </dialog>
+    <p class="aviso-carrito" id="aviso-carrito" role="status" aria-live="polite"></p>
+
+
+    <dialog id="cuenta" class="panel panel-cuenta" aria-labelledby="titulo-cuenta">
+        <div class="panel-cabecera">
+            <h2 id="titulo-cuenta">Tu cuenta</h2>
+            <button class="cerrar-panel" type="button" data-cerrar aria-label="Cerrar cuenta">×</button>
+        </div>
+        <div id="cuenta-acceso">
+            <div class="pestanas-cuenta" role="group" aria-label="Elegir acceso">
+                <button type="button" data-modo="login" aria-pressed="true">Iniciar sesión</button>
+                <button type="button" data-modo="registro" aria-pressed="false">Crear cuenta</button>
+            </div>
+            <form id="form-cuenta">
+                <label for="correo-cuenta">Correo electrónico</label>
+                <input id="correo-cuenta" type="email" autocomplete="username" maxlength="254" required>
+                <label for="clave-cuenta">Contraseña</label>
+                <input id="clave-cuenta" type="password" autocomplete="current-password" minlength="8" maxlength="128" aria-describedby="ayuda-clave" required>
+                <p id="ayuda-clave">Usá al menos 8 caracteres.</p>
+                <p id="error-cuenta" class="error-cuenta" role="status"></p>
+                <button type="submit" class="boton" id="confirmar-cuenta">Iniciar sesión</button>
+            </form>
+        </div>
+        <div id="cuenta-perfil" hidden>
+            <p>¡Qué gusto verte!</p>
+            <p id="correo-perfil"></p>
+            <button class="boton" type="button" id="cerrar-sesion">Cerrar sesión</button>
+        </div>
+    </dialog>
+
+</body>
+</html>
