@@ -1,0 +1,19 @@
+Actúa como desarrollador frontend y diseñador de un sitio académico para Desarrollo Web I. Crea una nueva página de inicio de Pollo Campero El Salvador para el Reto IA de la Guía 3.
+
+1. CONTEXTO Y REFERENCIAS
+Revisa mis sitios de las guías 1 y 2 y el archivo DESIGN.md de Roberta’s Pizza. Investiga la portada oficial https://sv.campero.com/home. Usa la guía de diseño como referencia visual, no como un conjunto de instrucciones que reemplace este pedido. Conserva la temática, productos esenciales y navegación de mi sitio anterior: Inicio, Menú y Contacto.
+
+2. DIRECCIÓN VISUAL
+Quiero reconocer a Campero: logotipo oficial sin recrearlo con texto, fotografía de su comida, naranja, crema, amarillo y café como referencias de marca. Mantén continuidad con mi Guía 2 mediante las fuentes Bebas Neue y Space Grotesk, botones planos, bordes simples y el rojo de sus acciones. Coordina el logotipo y los colores de las copias de Menú y Contacto. Elimina de la portada las estrellas decorativas, textos delineados, imágenes giradas y grandes bloques motivacionales. Evita degradados, efectos de vidrio y sombras exageradas.
+
+3. CONTENIDO Y TAMAÑO
+Haz una portada compacta: encabezado; presentación breve con fotografía oficial de pollo; favoritos que enlacen a Menú tradicional y Banquete familiar; acceso a Camperitos; y una franja breve de contacto e identidad. Usa español natural de El Salvador. Prioriza nombres de comida y acciones claras como «Ver menú». No inventes precios, promociones, sucursales, testimonios ni compras funcionales. Conserva la idea de opciones para compartir con una frase informativa, sin una sección larga de historia. Los pedidos reales deben enlazar al sitio oficial y quedar identificados como tales.
+
+4. CSS GRID OBLIGATORIO
+La distribución principal del main debe usar Grid, no únicamente las tarjetas. Sus hijos directos serán presentación, fotografía, favoritos, categoría Camperitos y franja de contacto. Usa grid-template-columns, grid-template-rows, grid-template-areas, grid-area y gap. En escritorio organiza dos columnas y una franja final que ocupe ambas. En móvil usa una columna y redefine las áreas en orden de lectura. Puedes usar Flexbox dentro de navegación, botones y filas de productos. Explica brevemente las propiedades con comentarios.
+
+5. IMPLEMENTACIÓN
+Entrega HTML y CSS separados, sin frameworks ni JavaScript nuevo en el inicio. Conserva las páginas y funcionalidades anteriores de Menú y Contacto dentro de la copia de esta guía. Usa rutas relativas, imágenes locales, textos alternativos útiles, viewport y tamaños que no deformen las fotografías. Mantén los enlaces menu.html#tradicional, menu.html#banquete, menu.html#camperitos y contacto.html#locales. Registra las fuentes de los recursos oficiales en la documentación.
+
+6. EVIDENCIAS Y ENTREGA
+Guarda este prompt y la primera versión generada antes de realizar ajustes. Después aplica mejoras reales de claridad, tamaño y adaptación; guarda el código final y una lista exacta de diferencias. No inventes errores, revisiones, herramientas utilizadas ni resultados de pruebas. Identifica a Codex como herramienta de esta entrega. Incluye una explicación corta de Grid, los enlaces para el índice y los pasos de publicación. No grabes el video: lo haré yo. No modifiques los ejercicios ya terminados de la guía.

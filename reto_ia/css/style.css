@@ -1,0 +1,781 @@
+/* 01. FUENTES LOCALES Y VARIABLES */
+@font-face {
+    font-family: "Bebas Neue";
+    src: url("../fonts/bebas-neue.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("../fonts/space-grotesk-400.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("../fonts/space-grotesk-600.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("../fonts/space-grotesk-700.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --naranja: #ff6b1a;
+    --verde-campero: #a5cc00;
+    --crema: #fff3d9;
+    --fondo: #fffaf2;
+    --blanco: #ffffff;
+    --cafe: #4a251c;
+    --texto-suave: #725348;
+    --rojo: #bd321c;
+    --borde: #e6d6c3;
+    --fuente-texto: "Space Grotesk", Arial, sans-serif;
+    --fuente-titulos: "Bebas Neue", Impact, sans-serif;
+    --ancho-contenido: 1120px;
+}
+
+/* 02. BASE COMPARTIDA */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: 175px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fuente-texto);
+    line-height: 1.55;
+    color: var(--cafe);
+    background-color: var(--fondo);
+}
+
+main {
+    flex-grow: 1;
+}
+
+.contenedor {
+    width: 92%;
+    max-width: var(--ancho-contenido);
+    margin: 0 auto;
+}
+
+h1, h2, h3, p, figure {
+    margin: 0;
+}
+
+h1, h2, h3 {
+    font-family: var(--fuente-titulos);
+    font-weight: 400;
+    line-height: 1.08;
+}
+
+h1 {
+    font-size: 54px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-underline-offset: 4px;
+}
+
+button, textarea, input {
+    font: inherit;
+}
+
+a:focus-visible, button:focus-visible, textarea:focus-visible {
+    outline: 3px solid var(--cafe);
+    outline-offset: 4px;
+}
+
+.etiqueta {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.enlace {
+    font-size: 13px;
+    font-weight: 700;
+    transition: color 0.18s ease;
+}
+
+.enlace:hover {
+    color: var(--rojo);
+}
+
+/* 03. MISMO ENCABEZADO Y FRANJA EN TODAS LAS PÁGINAS */
+.cabecera {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--crema);
+    border-bottom: 1px solid var(--borde);
+}
+
+.franja {
+    padding: 6px 0;
+    background-color: var(--naranja);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+}
+
+.franja-interior, .cabecera-interior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cabecera-interior {
+    min-height: 87px;
+    gap: 24px;
+    padding: 14px 0;
+}
+
+.marca {
+    flex-shrink: 0;
+}
+
+.marca img {
+    width: 150px;
+}
+
+.navegacion {
+    display: flex;
+    gap: 28px;
+}
+
+.navegacion a {
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.navegacion a:hover, .navegacion a[aria-current="page"] {
+    border-color: var(--rojo);
+    color: var(--rojo);
+}
+
+/* 04. BOTONES */
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-height: 46px;
+    padding: 11px 20px;
+    border: 1px solid var(--rojo);
+    border-radius: 6px;
+    background-color: var(--rojo);
+    color: var(--blanco);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.boton:hover {
+    border-color: var(--cafe);
+    background-color: var(--cafe);
+}
+
+.boton-secundario {
+    background-color: var(--cafe);
+    border-color: var(--cafe);
+}
+
+.boton-secundario:hover {
+    background-color: var(--rojo);
+    border-color: var(--rojo);
+}
+
+.acciones {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 24px;
+}
+
+/* 05. GRID PRINCIPAL DE INICIO: columnas, filas, espacios y áreas. */
+.inicio-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "presentacion foto"
+        "favoritos categoria"
+        "atencion atencion";
+    gap: 80px;
+    align-items: start;
+    padding: 32px 0;
+}
+
+.inicio-grid > *, .contacto-grid > * {
+    min-width: 0;
+}
+
+/* Los cinco hijos directos reciben su ubicación en el mapa. */
+.presentacion {
+    grid-area: presentacion;
+    align-self: center;
+}
+
+.foto-principal {
+    grid-area: foto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.favoritos {
+    grid-area: favoritos;
+}
+
+.categoria {
+    grid-area: categoria;
+}
+
+.inicio-grid > .banda-atencion {
+    grid-area: atencion;
+}
+
+.presentacion h1 {
+    margin: 14px 0;
+    font-size: 64px;
+}
+
+.presentacion h1 span {
+    color: var(--rojo);
+}
+
+.presentacion > p:not(.etiqueta) {
+    max-width: 370px;
+    color: var(--texto-suave);
+    font-size: 15px;
+}
+
+.foto-principal img {
+    width: 100%;
+    aspect-ratio: 736 / 490;
+}
+
+.titulo-fila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.producto-resumen {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--borde);
+}
+
+.producto-resumen img {
+    width: 106px;
+    height: 88px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.producto-resumen p {
+    margin: 4px 0 7px;
+    color: var(--texto-suave);
+    font-size: 13px;
+}
+
+.categoria {
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--cafe);
+}
+
+.categoria > img {
+    width: 100%;
+    height: 238px;
+    object-fit: contain;
+}
+
+.categoria-texto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px 20px;
+    background-color: var(--blanco);
+}
+
+/* 06. COMPONENTES COMPARTIDOS DE CONTENIDO */
+.banda-atencion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 22px 24px;
+    border-left: 4px solid var(--naranja);
+    background-color: var(--cafe);
+}
+
+.banda-atencion h2 {
+    font-size: 28px;
+}
+
+.banda-atencion p {
+    margin-top: 5px;
+    font-size: 13px;
+    color: var(--texto-suave);
+}
+
+.titulo-pagina h1 {
+    margin: 10px 0;
+}
+
+.titulo-pagina > p:last-child {
+    color: var(--texto-suave);
+    font-size: 15px;
+}
+
+/* 07. MENÚ */
+.pagina-menu {
+    padding: 32px 0;
+}
+
+.categorias-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 24px 0;
+}
+
+.categorias-menu button {
+    padding: 9px 15px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    background-color: var(--blanco);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.categorias-menu button:hover {
+    background-color: var(--crema);
+    border-color: var(--cafe);
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.producto {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    background-color: var(--blanco);
+    transition: border-color 0.18s ease;
+}
+
+.producto:hover, .producto:focus-within {
+    border-color: var(--rojo);
+}
+
+.producto-imagen {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.producto-contenido {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.producto-contenido .etiqueta {
+    color: var(--texto-suave);
+    font-size: 10px;
+}
+
+.producto-contenido h2 {
+    margin: 7px 0;
+    font-size: 28px;
+}
+
+.producto-contenido > p:not(.etiqueta) {
+    margin-bottom: 18px;
+    color: var(--texto-suave);
+    font-size: 13px;
+}
+
+.producto-contenido a {
+    margin-top: auto;
+}
+
+/* 08. CONTACTO */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-areas:
+        "titulo titulo"
+        "canales formulario"
+        "locales locales";
+    gap: 28px;
+    align-content: start;
+    padding: 32px 0;
+}
+
+.contacto-grid > .titulo-pagina {
+    grid-area: titulo;
+}
+
+.canales {
+    grid-area: canales;
+}
+
+.canales > p, .formulario > p {
+    margin: 10px 0 20px;
+    color: var(--texto-suave);
+    font-size: 14px;
+}
+
+.canal {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--borde);
+    text-decoration: none;
+}
+
+.canal strong {
+    font-size: 23px;
+}
+
+.canal > span:last-child {
+    font-size: 13px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.canal:hover {
+    color: var(--rojo);
+}
+
+.formulario {
+    grid-area: formulario;
+    padding: 28px;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    background-color: var(--blanco);
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.formulario textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    resize: vertical;
+    min-height: 140px;
+    border: 1px solid var(--texto-suave);
+    border-radius: 5px;
+    color: var(--cafe);
+    background-color: var(--blanco);
+    font-size: 14px;
+}
+
+.contacto-grid > .banda-atencion {
+    grid-area: locales;
+}
+
+/* 09. MISMO PIE EN LAS TRES PÁGINAS */
+.pie {
+    color: var(--cafe);
+    background-color: var(--verde-campero);
+}
+
+.pie-interior, .pie nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.pie-interior {
+    min-height: 78px;
+    padding: 20px 0;
+}
+
+.pie p {
+    font-size: 14px;
+}
+
+.pie p span {
+    display: block;
+    font-size: 12px;
+    color: var(--cafe);
+}
+
+.pie a {
+    font-size: 13px;
+}
+
+.pie a:focus-visible {
+    outline-color: var(--blanco);
+}
+
+/* 10. ADAPTACIÓN: la estructura del Grid cambia con el ancho. */
+@media (max-width: 900px) {
+    .productos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .cabecera-interior {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 12px 0;
+    }
+
+    .marca img {
+        width: 126px;
+    }
+
+    .boton-cabecera {
+        padding: 10px 12px;
+        min-height: 40px;
+        font-size: 11px;
+    }
+
+    .navegacion {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 32px;
+    }
+
+    /* Una columna y cinco áreas: los cinco bloques se apilan. */
+    .inicio-grid {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "presentacion"
+            "foto"
+            "favoritos"
+            "categoria"
+            "atencion";
+        gap: 24px;
+        padding: 24px 0;
+    }
+
+    .presentacion h1 {
+        font-size: 52px;
+    }
+
+    .presentacion h1 br {
+        display: none;
+    }
+
+    .presentacion > p:not(.etiqueta) {
+        max-width: none;
+    }
+
+    h1 {
+        font-size: 44px;
+    }
+
+    .contacto-grid {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "titulo"
+            "canales"
+            "formulario"
+            "locales";
+        gap: 24px;
+        padding: 24px 0;
+    }
+
+    .formulario {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 520px) {
+    .productos-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .producto-imagen {
+        height: 210px;
+    }
+
+    .producto-resumen {
+        gap: 12px;
+    }
+
+    .producto-resumen img {
+        width: 88px;
+        height: 82px;
+    }
+
+    .banda-atencion {
+        padding: 20px;
+    }
+
+    .pie-interior {
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .pie nav {
+        gap: 16px;
+    }
+
+    .pie .telefono {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    a, button, .producto {
+        transition: none;
+    }
+}
+
+/* 11. CARRITO, FILTROS Y CONTROLES COMPARTIDOS */
+[hidden] { display: none !important; }
+button { font-family: inherit; cursor: pointer; }
+.acciones-cabecera { display: flex; align-items: center; gap: 10px; }
+.contador-carrito { min-width: 23px; padding: 1px 5px; border-radius: 50%; background: var(--crema); color: var(--cafe); }
+.categorias-menu button { color: var(--cafe); }
+.categorias-menu button[aria-pressed="true"] { background: var(--cafe); color: var(--blanco); border-color: var(--cafe); }
+.resultado-filtro { margin: -8px 0 20px; font-size: 13px; color: var(--texto-suave); }
+.agregar-producto { margin-top: auto; }
+.panel { width: min(600px, 92vw); max-height: 85vh; padding: 26px; border: 1px solid var(--borde); border-radius: 12px; background: var(--fondo); color: var(--cafe); overflow-y: auto; }
+.panel::backdrop { background: rgb(35 20 13 / 55%); }
+body:has(dialog[open]) { overflow: hidden; }
+.panel-cabecera { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+.cerrar-panel { border: 0; background: var(--crema); color: var(--cafe); width: 40px; height: 40px; border-radius: 50%; font-size: 26px; }
+.linea-carrito { display: grid; grid-template-columns: 66px minmax(0,1fr); gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--borde); }
+.linea-carrito img { width: 66px; height: 66px; object-fit: cover; border-radius: 6px; }
+.linea-carrito h3 { font-size: 24px; }
+.controles-cantidad { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 10px; }
+.controles-cantidad button { border: 1px solid var(--borde); background: var(--blanco); color: var(--cafe); min-width: 34px; min-height: 34px; border-radius: 5px; }
+.controles-cantidad .quitar { border: 0; background: transparent; font-size: 12px; text-decoration: underline; margin-left: auto; }
+.resumen-carrito { padding-top: 22px; }
+.resumen-carrito p { margin-bottom: 12px; }
+.resumen-carrito > p:nth-child(2) { font-size: 13px; }
+.vaciar { display: block; border: 0; background: transparent; color: var(--cafe); text-decoration: underline; padding: 14px 0 0; }
+.aviso-carrito { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); width: max-content; max-width: 90%; z-index: 30; background: var(--cafe); color: white; padding: 12px 20px; border-radius: 8px; font-size: 13px; pointer-events: none; }
+.aviso-carrito:empty { display: none; }
+.pie a:focus-visible { outline-color: var(--cafe); }
+
+/* 12. MOVIMIENTO: mismo lenguaje visual en las tres páginas. */
+@keyframes entrada-cabecera {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes entrada-panel {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.cabecera { animation: entrada-cabecera 420ms ease-out both; }
+.panel[open] { animation: entrada-panel 240ms ease-out; }
+.revelar { opacity: 0; transform: translateY(14px); transition: opacity 550ms ease, transform 550ms cubic-bezier(.2,.65,.3,1); }
+.revelar.visible { opacity: 1; transform: translateY(0); }
+.producto { transition: opacity 550ms ease, transform 400ms ease, border-color 200ms ease, box-shadow 200ms ease; }
+@media (hover: hover) {
+    .producto.visible:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgb(74 37 28 / 9%); }
+}
+@media (max-width: 760px) {
+    .cabecera-interior { column-gap: 8px; }
+    .acciones-cabecera { margin-left: auto; gap: 6px; }
+}
+@media (max-width: 520px) {
+    .panel { padding: 20px; }
+    .resumen-carrito .boton { width: 100%; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    .revelar, .producto.visible:hover { opacity: 1; transform: none; }
+}
+
+/* 13. REGISTRO E INICIO DE SESIÓN */
+.acceso-cuenta { padding: 10px 6px; border: 0; background: transparent; color: var(--cafe); font-size: 13px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.panel-cuenta { max-width: 460px; }
+.pestanas-cuenta { display: flex; gap: 10px; margin-bottom: 22px; border-bottom: 1px solid var(--borde); }
+.pestanas-cuenta button { padding: 10px 5px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--cafe); font-weight: 600; }
+.pestanas-cuenta button[aria-pressed="true"] { border-bottom-color: var(--rojo); color: var(--rojo); }
+#form-cuenta label { display: block; margin: 14px 0 6px; font-size: 14px; }
+#form-cuenta input { width: 100%; min-height: 46px; border: 1px solid var(--texto-suave); border-radius: 5px; padding: 10px; background: var(--blanco); color: var(--cafe); }
+#ayuda-clave { font-size: 12px; margin: 6px 0 18px; color: var(--texto-suave); }
+.error-cuenta { color: var(--rojo); font-size: 13px; margin-bottom: 14px; }
+#correo-perfil { overflow-wrap: anywhere; margin: 10px 0 24px; }
+button:disabled { cursor: wait; opacity: .65; }
+@media (max-width: 760px) {
+    .marca img { width: 110px; }
+    .acceso-cuenta { font-size: 12px; }
+    .boton-cabecera { gap: 6px; padding: 9px 8px; }
+    .boton-cabecera svg { display: none; }
+}
